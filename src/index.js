@@ -24,6 +24,10 @@ io.on('connection', (socket) => {
         //socket.emit('countUpdated', count);
         io.emit('countUpdated', count);
     });
+
+    socket.on('typing', () => {
+        io.emit('he_is_typing');
+    })
 });
 
 server.listen(port, () => {
