@@ -15,3 +15,7 @@ document.querySelector('#increment').addEventListener('click', () => {
 document.querySelector('#typing').addEventListener('input', () => {
     socket.emit('typing');
 });
+
+socket.on('connection', (message) => {
+    console.log(message);
+});
