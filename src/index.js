@@ -30,7 +30,12 @@ io.on('connection', (socket) => {
     // socket.on('typing', () => {
     //     io.emit('he_is_typing');
     // })
-    socket.emit('connection', 'WELCOME!')
+    socket.emit('message', 'WELCOME!');
+
+    socket.on('sending-message', (message) => {
+        console.log(message);
+        io.emit('message', message);
+    });
 });
 
 server.listen(port, () => {

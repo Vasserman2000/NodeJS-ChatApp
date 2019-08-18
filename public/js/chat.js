@@ -12,10 +12,11 @@ document.querySelector('#increment').addEventListener('click', () => {
     socket.emit('increment');
 });
 
-document.querySelector('#typing').addEventListener('input', () => {
-    socket.emit('typing');
+
+socket.on('message', (message) => {
+    console.log(message);
 });
 
-socket.on('connection', (message) => {
-    console.log(message);
+document.querySelector('#send-message').addEventListener('click', () => {
+    socket.emit('sending-message', document.querySelector('#textbox1').value);
 });
