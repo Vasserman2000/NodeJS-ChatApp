@@ -13,10 +13,13 @@ const publicDirectoryPath = path.join(__dirname, '../public');
 app.use(express.static(publicDirectoryPath));
 
 
+
 io.on('connection', (socket) => {
+    
     console.log('New WebSocket connection');
     
-    socket.emit('welcome', 'WELCOME!!!!');
+    socket.emit('welcome', 'Welcome to the chat!');
+
     socket.broadcast.emit('message', 'A new user has joined!')
 
     socket.on('sendMessage', (message) => {
@@ -27,6 +30,9 @@ io.on('connection', (socket) => {
         io.emit('message', 'A user has left....')
     })
 });
+
+
+
 
 server.listen(port, () => {
     console.log(`Server is up on port  ${port}`);
