@@ -23,7 +23,14 @@ document.querySelector('#send-location').addEventListener('click', () => {
         return alert('Geolocation is not supported by your browser.');
     }
 
-    navigator.geolocation.getCurrentPosition((position) => {
-        console.log(position);
+    navigator.geolocation.getCurrentPosition((position ,error) => {
+        if (!error) {
+            socket.emit('sendLocation', {
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude
+            });
+        } else {
+            console.log(error.message);
+        }
     });
 })
