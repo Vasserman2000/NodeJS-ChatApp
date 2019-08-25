@@ -6,7 +6,10 @@ document.querySelector('#message-form').addEventListener('submit', (e) => {
     
     const message = e.target.elements.message.value;
     
-    socket.emit('sendMessage', message);
+    // the third parameter is an anknowledgement from the server
+    socket.emit('sendMessage', message, () => {
+        console.log('The message was delivered!');
+    });
 });
 
 socket.on('message', (message) => {
@@ -33,4 +36,4 @@ document.querySelector('#send-location').addEventListener('click', () => {
             console.log(error.message);
         }
     });
-})
+});
