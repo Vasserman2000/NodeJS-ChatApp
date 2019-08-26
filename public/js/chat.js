@@ -7,8 +7,8 @@ document.querySelector('#message-form').addEventListener('submit', (e) => {
     const message = e.target.elements.message.value;
     
     // the third parameter is an anknowledgement from the server
-    socket.emit('sendMessage', message, () => {
-        console.log('The message was delivered!');
+    socket.emit('sendMessage', message, (ack) => {
+        console.log(ack);
     });
 });
 
