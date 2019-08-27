@@ -27,20 +27,20 @@ io.on('connection', (socket) => {
         const filter = new Filter();
 
         if (filter.isProfane(message)) {
-            return callback('Profanity is not allwed!')
+            return callback('Profanity is not allowed!')
         }
 
-
         io.emit('message', message);
-        callback('Server: the message was delivered..');
+        callback();
     });
 
     socket.on('disconnect', () => {
         io.emit('message', 'A user has left....')
     });
 
-    socket.on('sendLocation', (location) => {
-        io.emit('message', `https://google.com/maps?q=${location.latitude},${location.longitude}`)
+    socket.on('sendLocation', (location, callback) => {
+        io.emit('message', `https://google.com/maps?q=${location.latitude},${location.longitude}`);
+        callback('Location shared!');
     });
 });
 
