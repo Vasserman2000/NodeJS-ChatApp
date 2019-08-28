@@ -1,5 +1,6 @@
 const socket = io();
 
+const $messageForm = document.querySelector('#message-form');
 
 document.querySelector('#message-form').addEventListener('submit', (e) => {
     e.preventDefault();
