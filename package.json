@@ -13,7 +13,8 @@
   },
   "scripts": {
     "start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start-mongodb-server": "..\\..\\..\\..\\mongodb\\bin\\mongod.exe --dbpath=..\\..\\..\\..\\mongodb-data"
   },
   "author": "",
   "license": "ISC"
