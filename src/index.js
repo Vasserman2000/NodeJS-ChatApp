@@ -17,17 +17,17 @@ app.use(express.static(publicDirectoryPath));
 
 io.on('connection', (socket) => {
 
-    console.log('New WebSocket connection');
+    console.log('***New WebSocket connection');
     
-    socket.emit('welcome', 'Welcome to the chat!');
+    socket.emit('welcome', '***Welcome to the chat!');
 
-    socket.broadcast.emit('message', 'A new user has joined!');
+    socket.broadcast.emit('message', '***A new user has joined!');
 
     socket.on('sendMessage', (message, callback) => {
         const filter = new Filter();
 
         if (filter.isProfane(message)) {
-            return callback('Profanity is not allowed!')
+            return callback('***Profanity is not allowed!')
         }
 
         io.emit('message', message);
@@ -35,12 +35,12 @@ io.on('connection', (socket) => {
     });
 
     socket.on('disconnect', () => {
-        io.emit('message', 'A user has left....')
+        io.emit('message', '***A user has left....')
     });
 
     socket.on('sendLocation', (location, callback) => {
         io.emit('message', `https://google.com/maps?q=${location.latitude},${location.longitude}`);
-        callback('Location shared!');
+        callback('***Location shared!');
     });
 });
 
