@@ -3,6 +3,8 @@
     <head></head>
     <body>
         Chat App
+
+        <div id="messages"></div>
         
         <form id="message-form">
             <input name="message" placeholder="Message">
@@ -10,8 +12,9 @@
         </form>
         <button id="send-location">Send location</button>
 
-        <script>
+        <script id="message-template" type="text/html">
             <div>
+                <p>{{message}}</p>
             </div>
         </script>
 
