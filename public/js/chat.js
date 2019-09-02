@@ -32,7 +32,7 @@ $messageForm.addEventListener('submit', (e) => {
 
 socket.on('message', (message) => {
     console.log(message);
-    const html = Mustache.render(messageTemplate, {message});
+    const html = Mustache.render(messageTemplate, { message });
     $messages.insertAdjacentHTML('beforeend', html);
 });
 
@@ -62,3 +62,7 @@ $sendLocationButton.addEventListener('click', () => {
         }
     });
 });
+
+socket.on('locationMessage', (locationMessage) => {
+    console.log(locationMessage);
+})
