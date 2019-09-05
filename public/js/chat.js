@@ -68,7 +68,7 @@ $sendLocationButton.addEventListener('click', () => {
 socket.on('locationMessage', (locationMessage) => {
     console.log(locationMessage);
     const html = Mustache.render(locationTemplate, { 
-        locationMessage: locationMessage.text, 
+        locationMessage: locationMessage.url, 
         createdAt: moment(locationMessage.createdAt).format('h:mm a') });
     $messages.insertAdjacentHTML('beforeend', html);
 });
