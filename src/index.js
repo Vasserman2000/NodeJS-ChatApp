@@ -24,6 +24,10 @@ io.on('connection', (socket) => {
 
     socket.broadcast.emit('message', generateMessage('***A new user has joined!'));
 
+    socket.on('join', ( username, room) => {
+
+    })
+
     socket.on('sendMessage', (message, callback) => {
         const filter = new Filter();
 
