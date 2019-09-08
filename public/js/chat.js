@@ -12,7 +12,7 @@ const messageTemplate = document.querySelector('#message-template').innerHTML;
 const locationTemplate = document.querySelector('#location-template').innerHTML;
 
 // Options
-const {usrname, room} = Qs.parse(location.search, { ignoreQueryPrefix: true });
+const { username, room } = Qs.parse(location.search, { ignoreQueryPrefix: true });
 
 $messageForm.addEventListener('submit', (e) => {
     e.preventDefault();
