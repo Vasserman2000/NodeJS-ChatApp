@@ -23,7 +23,7 @@ io.on('connection', (socket) => {
     socket.on('join', ({ username, room }) => {
         socket.join(room);
 
-        socket.emit('message', generateMessage('***Welcome to the chat!!'));
+        socket.emit('message', generateMessage('***Welcome to the chat!!', username));
 
         socket.broadcast.to(room).emit('message', generateMessage(`${username} has joined!`));    
     });

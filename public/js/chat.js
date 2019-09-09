@@ -36,7 +36,11 @@ $messageForm.addEventListener('submit', (e) => {
 
 socket.on('message', (message) => {
     console.log(message);
-    const html = Mustache.render(messageTemplate, { createdAt: moment(message.createdAt).format('h:mm a'), message: message.text });
+    const html = Mustache.render(messageTemplate, { 
+        createdAt: moment(message.createdAt).format('h:mm a'), 
+        message: message.text, 
+        username: message.username });
+        
     $messages.insertAdjacentHTML('beforeend', html);
 });
 
